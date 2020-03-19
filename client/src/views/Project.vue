@@ -10,7 +10,7 @@
         class="pl-4"
       >
         <div class="home">
-          <Panel title="Projects">
+          <Panel title="Tasks">
             <h1>Testing</h1>
           </Panel>
         </div>
