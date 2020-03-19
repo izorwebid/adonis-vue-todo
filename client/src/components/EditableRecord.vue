@@ -7,6 +7,7 @@
       xs9
       class="text-left pl-4"
     >
+      <slot></slot>
       <span
         v-if="!isEditMode"
         @click="$emit('onClick')"
