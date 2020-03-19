@@ -7,7 +7,10 @@
       xs9
       class="text-left pl-4"
     >
-      <span v-if="!isEditMode">{{title}}</span>
+      <span
+        v-if="!isEditMode"
+        @click="$emit('onClick')"
+      >{{title}}</span>
       <v-text-field
         autofocus
         v-if="isEditMode"

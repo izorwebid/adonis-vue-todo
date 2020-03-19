@@ -12,6 +12,7 @@
         @onEdit="setEditMode(project)"
         @onSave="saveProject(project)"
         @onDelete="deleteProject(project)"
+        @onClick="projectClicked(project)"
       ></EditableRecord>
     </div>
     <CreateRecord
@@ -27,6 +28,7 @@
 import { mapState, mapMutations, mapActions } from 'vuex'
 import CreateRecord from '@/components/CreateRecord'
 import EditableRecord from '@/components/EditableRecord'
+
 export default {
   mounted () {
     this.fetchProject()
@@ -42,16 +44,24 @@ export default {
     ])
   },
   methods: {
+    projectClicked (project) {
+      this.setCurrentProject(project)
+      this.fetchTaskForProject(project)
+    },
     ...mapMutations('projects', [
       'setNewProjectName',
       'setEditMode',
-      'setProjectTitle'
+      'setProjectTitle',
+      'setCurrentProject'
     ]),
     ...mapActions('projects', [
       'createProject',
       'fetchProject',
       'saveProject',
       'deleteProject'
+    ]),
+    ...mapActions('tasks', [
+      'fetchTaskForProject'
     ])
   }
 }

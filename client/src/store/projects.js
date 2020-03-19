@@ -5,7 +5,8 @@ export default {
   namespaced: true,
   state: {
     projects: [],
-    newProjectName: null
+    newProjectName: null,
+    currentProject: null
   },
   actions: {
     saveProject ({ commit }, project) {
@@ -40,6 +41,9 @@ export default {
 
   },
   mutations: {
+    setCurrentProject (state, project) {
+      state.currentProject = project
+    },
     setNewProjectName (state, name) {
       state.newProjectName = name
     },
